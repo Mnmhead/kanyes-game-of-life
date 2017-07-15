@@ -21,7 +21,6 @@ var GRID = initGrid( CANV_W, CANV_H );
 var GRID_W = GRID.length;
 var GRID_H = GRID[0].length;
 var SHOW_GRID = false;
-document.getElementById( "grid" ).style.visibility = 'hidden';
 
 // animation variables
 var IMG = new Image();
@@ -226,3 +225,8 @@ document.getElementById( "game" ).onclick = function() {
 
 // spawnKanyes();
 animate( kanye );
+
+//TODO
+// make a random kanye generation button
+// make a drawKanye's method
+// after drawKanye's, we can implement the grid and a 'click-to-spawn-new-kanyes' feature
