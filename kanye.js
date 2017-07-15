@@ -86,14 +86,6 @@ function kanye() {
          }
       }
    }
-
-   // redraw grid (if set to visible)
-   if( SHOW_GRID ) { 
-      console.log( "drawing grid" );
-      drawGrid();
-   } else {
-      console.log( "not drawing the grid deadass" );
-   }
   
    if( ANIMATING ) { 
       animate( kanye );
@@ -211,6 +203,7 @@ document.getElementById( "grid" ).onclick = function() {
    } else {
       grid_button.value = "Remove Grid";
       SHOW_GRID = true;
+      drawGrid();
    }
 
    console.log( "show grid: " + SHOW_GRID );
