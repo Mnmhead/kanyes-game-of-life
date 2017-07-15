@@ -202,7 +202,7 @@ function drawKanye( x, y ) {
    ctx.drawImage( IMG, x * KANYE_W, y * KANYE_H );
 }
 
-document.getElementById( "grid" ).onlick = function() {
+document.getElementById( "grid" ).onclick = function() {
    grid_button = document.getElementById( "grid" );
    if( SHOW_GRID ) {
       grid_button.value = "Show Grid";
