@@ -10,8 +10,10 @@
 // 4. Any dead kanye with exactly three live kanye-neighbors becomes a live kanye, kanyes come in 
 //    threes as the relics of old state in thier writings
 
-var KANYE_W = 50;
-var KANYE_H = 50;
+// Dont ever use global variables like this. 
+// Make an object next time, and have a constructor. Im just lazy.
+var KANYE_W = 50;  // image pixel width
+var KANYE_H = 50;  // image pixel height
 var CANVAS_DIMS = getCanvasDimensions();
 var CANV_W = CANVAS_DIMS.width;
 var CANV_H = CANVAS_DIMS.height;
