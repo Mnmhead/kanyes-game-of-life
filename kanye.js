@@ -221,7 +221,7 @@ document.getElementById( "game" ).onclick = function() {
       animate( kanye );
    } else {
       game_button.value = "Play";
-      grid_button.style.visibility = 'visible';
+      //grid_button.style.visibility = 'visible';
    }
 }
 
