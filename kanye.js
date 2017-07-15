@@ -40,7 +40,6 @@ function kanye() {
    CUR_FRAME = (CUR_FRAME + 1) % 20;
 
    if( CUR_FRAME == 0 ) {
-      console.log( "kanye-ing" );
       // clear canvas, compute new state, then re-draw
       clearCanvas();
 
@@ -148,8 +147,6 @@ function getCanvasDimensions() {
 function initGrid( width, height ) {
    //width = width - (width % KANYE_W);
    //height = height - (height % KANYE_H);
-
-   console.log( "w: " + width + " h: " + height);
 
    var arr_x = width / KANYE_W;
    var arr_y = height / KANYE_H;
