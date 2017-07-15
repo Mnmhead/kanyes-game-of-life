@@ -16,6 +16,8 @@ var CANVAS_DIMS = getCanvasDimensions();
 var CANV_W = CANVAS_DIMS.width;
 var CANV_H = CANVAS_DIMS.height;
 var GRID = initGrid( CANV_W, CANV_H );
+
+// shitty glider starting points
 GRID[2][0] = true;
 GRID[2][1] = true;
 GRID[2][2] = true;
