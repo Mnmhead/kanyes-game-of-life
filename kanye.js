@@ -39,10 +39,10 @@ GRID[0][1] = true;
 function kanye() {
    CUR_FRAME = (CUR_FRAME + 1) % 20;
 
-   if( CUR_FRAME == 0 ) {
-      // clear canvas, compute new state, then re-draw
-      clearCanvas();
+   // clear canvas, compute new state (only on 1 second intervals), then re-draw
+   clearCanvas();
 
+   if( CUR_FRAME == 0 ) {
       // determine pixel dimensions of canvas, and cell dimensions of grid
       var dims = getCanvasDimensions();
       var x = dims.width;
@@ -50,8 +50,8 @@ function kanye() {
       var grid_x = x / KANYE_W;
       var grid_y = y / KANYE_H;
 
+      // create new grid and calculate new kanyes
       var next_grid = initGrid( x, y );
-
       for( var i = 0; i < grid_x; i++ ) {
          for( var j = 0; j < grid_y; j++ ) {
             var n_count = getNeighborCount( i, j );
@@ -70,16 +70,17 @@ function kanye() {
          }
       }
 
-      for( var n = 0; n < grid_x; n++ ) {
-         for( var m = 0; m < grid_y; m++ ) {
-            if( next_grid[n][m] ) {
-               drawKanye( n, m );
-            }
+      // update grid for next cycle of kanye's life
+      GRID = next_grid;
+   }
+
+   // draw kanyes
+   for( var n = 0; n < grid_x; n++ ) {
+      for( var m = 0; m < grid_y; m++ ) {
+         if( GRID[n][m] ) {
+            drawKanye( n, m );
          }
       }
-      
-      // update gird for next cycle of kanye's life
-      GRID = next_grid;
    }
 
    // redraw grid (if set to visible)
