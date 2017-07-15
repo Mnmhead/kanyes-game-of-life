@@ -21,6 +21,7 @@ var GRID = initGrid( CANV_W, CANV_H );
 var GRID_W = GRID.length;
 var GRID_H = GRID[0].length;
 var SHOW_GRID = false;
+document.getElementById( "grid" ).style.visibility = 'hidden';
 
 // animation variables
 var IMG = new Image();
