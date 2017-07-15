@@ -217,7 +217,7 @@ document.getElementById( "game" ).onclick = function() {
    //grid_button = document.getElementById( "grid" );
    if( ANIMATING ) {
       game_button.value = "Pause";
-      grid_button.style.visibility = 'hidden';
+      //grid_button.style.visibility = 'hidden';
       animate( kanye );
    } else {
       game_button.value = "Play";
