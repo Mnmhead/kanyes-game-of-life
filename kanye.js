@@ -194,6 +194,7 @@ function drawKanye( x, y ) {
    ctx.drawImage( IMG, x * KANYE_W, y * KANYE_H );
 }
 
+/*
 document.getElementById( "grid" ).onclick = function() {
    grid_button = document.getElementById( "grid" );
    if( SHOW_GRID ) {
@@ -207,12 +208,13 @@ document.getElementById( "grid" ).onclick = function() {
 
    console.log( "show grid: " + SHOW_GRID );
 }
+*/
 
 document.getElementById( "game" ).onclick = function() {
    ANIMATING = !ANIMATING;
 
    game_button = document.getElementById( "game" );
-   grid_button = document.getElementById( "grid" );
+   //grid_button = document.getElementById( "grid" );
    if( ANIMATING ) {
       game_button.value = "Pause";
       grid_button.style.visibility = 'hidden';
