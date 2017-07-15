@@ -41,17 +41,18 @@ GRID[0][1] = true;
 function kanye() {
    CUR_FRAME = (CUR_FRAME + 1) % 20;
 
-   // clear canvas, compute new state (only on 1 second intervals), then re-draw
+   // clear canvas, compute new state (only on 1/3 second intervals), then re-draw
    clearCanvas();
 
-   if( CUR_FRAME == 0 ) {
-      // determine pixel dimensions of canvas, and cell dimensions of grid
-      var dims = getCanvasDimensions();
-      var x = dims.width;
-      var y = dims.height;
-      var grid_x = x / KANYE_W;
-      var grid_y = y / KANYE_H;
+   // determine pixel dimensions of canvas, and cell dimensions of grid
+   var dims = getCanvasDimensions();
+   var x = dims.width;
+   var y = dims.height;
+   var grid_x = x / KANYE_W;
+   var grid_y = y / KANYE_H;
 
+   // on the beginning of a new frame cycle, update state
+   if( CUR_FRAME == 0 ) {
       // create new grid and calculate new kanyes
       var next_grid = initGrid( x, y );
       for( var i = 0; i < grid_x; i++ ) {
