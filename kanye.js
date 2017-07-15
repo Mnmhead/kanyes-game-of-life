@@ -24,6 +24,7 @@ var SHOW_GRID = false;
 var IMG = new Image();
 IMG.src = "kanye_smol.jpg";
 var CUR_FRAME = 0;
+var ANIMATING = true;
 
 
 // shitty glider starting points
@@ -84,10 +85,15 @@ function kanye() {
 
    // redraw grid (if set to visible)
    if( SHOW_GRID ) { 
+      console.log( "drawing grid" );
       drawGrid();
+   } else {
+      console.log( "not drawing the grid deadass" );
    }
-   
-   animate( kanye );
+  
+   if( ANIMATING ) { 
+      animate( kanye );
+   }
 }
 
 // Entry-point function, animates Kanye's game of life
@@ -196,10 +202,29 @@ function drawKanye( x, y ) {
 }
 
 document.getElementById( "grid" ).onlick = function() {
-   SHOW_GRID = !SHOW_GRID;
+   grid_button = document.getElementById( "grid" );
+   if( SHOW_GRID ) {
+      grid_button.value = "Show Grid";
+      SHOW_GRID = false;
+   } else {
+      grid_button.value = "Remove Grid";
+      SHOW_GRID = true;
+   }
+
+   console.log( "show grid: " + SHOW_GRID );
 }
 
+document.getElementById( "game" ).onclick = function() {
+   ANIMATING = !ANIMATING;
 
+   game_button = document.getElementById( "game" );
+   if( ANIMATING ) {
+      game_button.value = "Pause";
+      animate( kanye );
+   } else {
+     game_button.value = "Play"; 
+   }
+}
 
 // spawnKanyes();
 animate( kanye );
