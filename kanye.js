@@ -219,11 +219,14 @@ document.getElementById( "game" ).onclick = function() {
    ANIMATING = !ANIMATING;
 
    game_button = document.getElementById( "game" );
+   grid_button = document.getElementById( "grid" );
    if( ANIMATING ) {
       game_button.value = "Pause";
+      grid_button.style.visibility = 'visible';
       animate( kanye );
    } else {
-     game_button.value = "Play"; 
+      game_button.value = "Play";
+      grid_button.style.visibility = 'hidden';
    }
 }
 
