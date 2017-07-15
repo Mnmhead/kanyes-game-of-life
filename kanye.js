@@ -16,6 +16,15 @@ var CANVAS_DIMS = getCanvasDimensions();
 var CANV_W = CANVAS_DIMS.width;
 var CANV_H = CANVAS_DIMS.height;
 var GRID = initGrid( CANV_W, CANV_H );
+var GRID_W = GRID.length;
+var GRID_H = GRID[0].length;
+var SHOW_GRID = false;
+
+// animation variables
+var IMG = new Image();
+IMG.src = "kanye_smol.jpg";
+var CUR_FRAME = 0;
+
 
 // shitty glider starting points
 GRID[2][0] = true;
@@ -24,15 +33,8 @@ GRID[2][2] = true;
 GRID[1][2] = true;
 GRID[0][1] = true;
 
-console.log( "initializing first grid" );
-console.log( "x dim: " + GRID.length + ", y dim: " + GRID[0].length );
 
-var GRID_W = GRID.length;
-var GRID_H = GRID[0].length;
-
-// animation variables
-var CUR_FRAME = 0;
-
+// animation callback function
 function kanye() {
    CUR_FRAME = (CUR_FRAME + 1) % 20;
 
@@ -67,8 +69,7 @@ function kanye() {
             next_grid[i][j] = next_status;
          }
       }
-   
-      //drawGrid();
+
       for( var n = 0; n < grid_x; n++ ) {
          for( var m = 0; m < grid_y; m++ ) {
             if( next_grid[n][m] ) {
@@ -79,6 +80,11 @@ function kanye() {
       
       // update gird for next cycle of kanye's life
       GRID = next_grid;
+   }
+
+   // redraw grid (if set to visible)
+   if( SHOW_GRID ) { 
+      drawGrid();
    }
    
    animate( kanye );
@@ -183,16 +189,17 @@ function drawCell( x, y ) {
    ctx.fillRect( x * KANYE_W, y * KANYE_H, KANYE_W, KANYE_H);
 }
 
-var IMG = new Image();
-IMG.src = "kanye_smol.jpg";
-
 function drawKanye( x, y ) {
    var canvas = document.getElementById( "canvas" );
    var ctx = canvas.getContext( "2d" );
    ctx.drawImage( IMG, x * KANYE_W, y * KANYE_H );
 }
 
-//drawGrid();
+document.getElementById( "grid" ).onlick = function() {
+   SHOW_GRID = !SHOW_GRID;
+}
+
+
 
 // spawnKanyes();
 animate( kanye );
